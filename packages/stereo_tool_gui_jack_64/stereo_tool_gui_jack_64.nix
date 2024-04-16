@@ -23,7 +23,7 @@ stdenv.mkDerivation {
 
     mkdir -p $out/bin
     mkdir -p $out/share/applications
-    cp $src $out/bin
+    install -m755 $src $out/bin/stereo_tool_gui_jack_64
 
     cat > $out/share/applications/stereo_tool_gui_jack_64.desktop <<EOF
     [Desktop Entry]
