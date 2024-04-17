@@ -20,12 +20,8 @@
         modules = [ 
           ./hosts/audioproc1/configuration.nix
           ./nixosModules
-          #./packages
-          #{ packages.${system}.stereo_tool_gui_jack_64 = nixpkgs.legacyPackages.${system}.callPackage ./packages/stereo_tool_gui_jack_64.nix {}; }
         ];
       };
     };
-    packages.${system}.stereo_tool_gui_jack_64 = nixpkgs.legacyPackages.${system}.callPackage ./packages/stereo_tool_gui_jack_64.nix {};
   };
-
 }

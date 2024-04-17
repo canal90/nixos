@@ -111,11 +111,7 @@ in
     patchance
     pkgs-unstable.alsa-scarlett-gui
 
-    # stereo tool dependencies
-    #xorg.libX11
-    #xorg.libXpm
-    #zlib
-    #libz
+    (callPackage ../../packages/stereo_tool_gui_jack_64 {})
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
