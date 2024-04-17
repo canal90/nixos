@@ -3,11 +3,11 @@
   description = "Canal 90 NixOS Systems";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    #nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable }@inputs: 
+  outputs = { self, nixpkgs }@inputs: 
   let
     system = "x86_64-linux";
     specialArgs = inputs // { inherit system; };
