@@ -13,9 +13,11 @@ stdenv.mkDerivation {
   };
   #sourceRoot = ".";
 
-  dontConfigure = true;
-  dontBuild = true;
-  unpackPhase = ":";
+  #dontConfigure = true;
+  #dontBuild = true;
+  dontStrip = true;
+  dontUnpack = true;
+  #unpackPhase = ":";
   #phases = [ "installPhase" "fixupPhase ];
 
   installPhase = ''
