@@ -1,35 +1,33 @@
 { lib, stdenv, fetchurl, xorg, alsa-lib, zlib }:
-
+let
+  name = "stereo_tool_gui_jack_64";
+in
 stdenv.mkDerivation {
-  pname = "stereo_tool_gui_jack_64";
+  pname = name;
   version = "v10.30";
 
   src = fetchurl {
     curlOpts = "-L";
-    url = "https://www.stereotool.com/download/stereo_tool_gui_jack_64";
+    url = "https://www.stereotool.com/download/${name}";
+  #dontConfigure = true;
     sha256 = "r7fkSd4p6HlgpRH0qsJBXNZOQPYMeeLvP5GAtKR9pRU=";
     executable = true;
   };
-  #sourceRoot = ".";
 
-  #dontConfigure = true;
-  #dontBuild = true;
   dontStrip = true;
   dontUnpack = true;
-  #unpackPhase = ":";
-  #phases = [ "installPhase" "fixupPhase ];
 
   installPhase = ''
     runHook preInstall
 
     mkdir -p $out/bin
     mkdir -p $out/share/applications
-    install -m755 $src $out/bin/stereo_tool_gui_jack_64
+    install -m755 $src $out/bin/${name}
 
-    cat > $out/share/applications/stereo_tool_gui_jack_64.desktop <<EOF
+    cat > $out/share/applications/${name}.desktop <<EOF
     [Desktop Entry]
     Name=Stereo Tool 10.30
-    Exec=$out/bin/stereo_tool_gui_jack_64
+    Exec=$out/bin/${name}
     Type=Application
     Categories=AudioVideo;Audio;Mixer;
     Keywords=stereotool
@@ -47,6 +45,6 @@ stdenv.mkDerivation {
     ];
     in ''
       patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
-        --set-rpath "${libPath}" $out/bin/stereo_tool_gui_jack_64
+        --set-rpath "${libPath}" $out/bin/${name}
     '';
 }
