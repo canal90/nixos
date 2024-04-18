@@ -19,7 +19,6 @@
     userSettings = { 
       username = "canal90";
       name = "Canal 90";
-      email = "canal90fmaruba@gmail.com";
       homeDirectory = "/home/${userSettings.username}"; 
     };
 
