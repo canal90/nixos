@@ -1,0 +1,22 @@
+<!DOCTYPE patchbay>
+<patchbay name="stereo_tool" version="0.6.3">
+ <items>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="stereo_tool" port="stereo_tool:out_r"/>
+   <input node="butt-virtual-cable" port="butt-virtual-cable:playback_FR"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="stereo_tool" port="stereo_tool:out_l"/>
+   <input node="butt-virtual-cable" port="butt-virtual-cable:playback_FL"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="stereo_tool" port="stereo_tool:out_r"/>
+   <input node="Built-in Audio Digital Stereo (IEC958)" port="ALC888-VD Digital:playback_FR"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="stereo_tool" port="stereo_tool:out_l"/>
+   <input node="Built-in Audio Digital Stereo (IEC958)" port="ALC888-VD Digital:playback_FL"/>
+  </item>
+ </items>
+</patchbay>
+

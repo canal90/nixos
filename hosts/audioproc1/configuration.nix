@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, system, ... }:
+{ config, pkgs, systemSettings, userSettings, ... }:
 
 {
   imports =
@@ -23,7 +23,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "audioproc1"; # Define your hostname.
+  networking.hostName = systemSettings.hostname; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -85,7 +85,7 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.canal90 = {
+  users.users.${userSettings.username} = {
     isNormalUser = true;
     description = "Canal 90";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -98,7 +98,7 @@
 
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "canal90";
+  services.displayManager.autoLogin.user = userSettings.username;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -140,7 +140,7 @@
   
   # Enable flakes
   nix = {
-    package = pkgs.nixUnstable;
+    #package = pkgs.nixUnstable;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';

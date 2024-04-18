@@ -4,22 +4,42 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    #nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs }@inputs: 
+  outputs = { self, nixpkgs, home-manager }@inputs:
   let
-    system = "x86_64-linux";
-    specialArgs = inputs // { inherit system; };
+    systemSettings = {
+      system = "x86_64-linux";
+      hostname = "audioproc1";
+    };
+
+    userSettings = { 
+      username = "canal90";
+      homeDirectory = "/home/${userSettings.username}"; 
+    };
+
+    specialArgs = inputs // { inherit systemSettings; inherit userSettings; };
   in
   {
     nixosConfigurations = {
       audioproc1 = nixpkgs.lib.nixosSystem {
         specialArgs = specialArgs;
-        system = system;
+        system = systemSettings.system;
         modules = [ 
-          ./hosts/audioproc1/configuration.nix
+          ./hosts/${systemSettings.hostname}/configuration.nix
           ./nixosModules
+
+          home-manager.nixosModules.home-manager {
+            home-manager = {
+              extraSpecialArgs = specialArgs;
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.${userSettings.username} = import ./homeManagerModules/home.nix;
+            };
+          }
         ];
       };
     };
