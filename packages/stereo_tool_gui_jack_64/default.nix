@@ -7,7 +7,6 @@ stdenv.mkDerivation {
   src = fetchurl {
     curlOpts = "-L";
     url = "https://www.stereotool.com/download/stereo_tool_gui_jack_64";
-    #sha256 = "b32d69b3892732548a55aa5241327afbc43bc7bd3f0a94548fb524596524ada2";
     sha256 = "r7fkSd4p6HlgpRH0qsJBXNZOQPYMeeLvP5GAtKR9pRU=";
     executable = true;
   };

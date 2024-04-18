@@ -18,6 +18,8 @@
 
     userSettings = { 
       username = "canal90";
+      name = "Canal 90";
+      email = "canal90fmaruba@gmail.com";
       homeDirectory = "/home/${userSettings.username}"; 
     };
 
@@ -25,7 +27,7 @@
   in
   {
     nixosConfigurations = {
-      audioproc1 = nixpkgs.lib.nixosSystem {
+      ${systemSettings.hostname} = nixpkgs.lib.nixosSystem {
         specialArgs = specialArgs;
         system = systemSettings.system;
         modules = [ 
