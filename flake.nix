@@ -7,9 +7,12 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager }@inputs:
+  outputs = { self, nixpkgs, home-manager, disko }@inputs:
   let
     systemSettings = {
       system = "x86_64-linux";
@@ -31,6 +34,10 @@
         system = systemSettings.system;
         modules = [ 
           ./hosts/${systemSettings.hostname}/configuration.nix
+
+          disko.nixosModules.disko
+          ./hosts/${systemSettings.hostname}/disk-configuration.nix
+
           ./nixosModules
 
           home-manager.nixosModules.home-manager {
