@@ -10,12 +10,20 @@
    <input node="butt-virtual-cable" port="butt-virtual-cable:playback_FL"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="stereo_tool" port="stereo_tool:out_r"/>
-   <input node="Built-in Audio Digital Stereo (IEC958)" port="ALC888-VD Digital:playback_FR"/>
+   <output node="Built-in Audio Analog Stereo" port="ALC888-VD Analog:capture_FR"/>
+   <input node="stereo_tool" port="stereo_tool:in_2"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
    <output node="stereo_tool" port="stereo_tool:out_l"/>
    <input node="Built-in Audio Digital Stereo (IEC958)" port="ALC888-VD Digital:playback_FL"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="stereo_tool" port="stereo_tool:out_r"/>
+   <input node="Built-in Audio Digital Stereo (IEC958)" port="ALC888-VD Digital:playback_FR"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Built-in Audio Analog Stereo" port="ALC888-VD Analog:capture_FL"/>
+   <input node="stereo_tool" port="stereo_tool:in_1"/>
   </item>
  </items>
 </patchbay>

@@ -31,7 +31,7 @@ ic_charset =
 log_file = 
 
 [audio]
-device = 7
+device = 8
 device2 = -1
 dev_remember = 1
 samplerate = 48000
