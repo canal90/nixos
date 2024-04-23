@@ -12,3 +12,11 @@ cd nixos/
 sudo nix run 'github:nix-community/disko#disko-install' --experimental-features 'nix-command flakes' -- --write-efi-boot-entries --flake '/tmp/nixos#audioproc1' --disk nvme0n1 /dev/nvme0n1
 sudo reboot
 ```
+USB boot disk can now be removed.
+
+# Initial system boot
+Now that the system has booted for the first time, you should change the default password which is "changeme".
+Open a terminal and execute the following and fill in the new password:
+```
+passwd
+```
