@@ -85,7 +85,7 @@
   users.users.${userSettings.username} = {
     isNormalUser = true;
     description = userSettings.name;
-    hashedPassword = "$y$j9T$9DM4/7clQGEAY5SsRjEuu0$56AZgy91xnZtKNAuZYEWAY160SEWHQ26uhka4lCO/LA";
+    initialHashedPassword = "$y$j9T$9DM4/7clQGEAY5SsRjEuu0$56AZgy91xnZtKNAuZYEWAY160SEWHQ26uhka4lCO/LA"; # password is "changeme"
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
