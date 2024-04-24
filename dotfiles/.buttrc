@@ -47,7 +47,7 @@ silence_level = 50.000000
 signal_level = 50.000000
 disable_dithering = 0
 buffer_ms = 50
-dev_name = butt-virtual-cable [JACK Audio Connection Kit]
+dev_name = butt-virtual-audio-device [JACK Audio Connection Kit]
 dev2_name = None
 
 [record]

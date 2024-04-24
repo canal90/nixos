@@ -58,15 +58,15 @@
     pulse.enable = true;
     jack.enable = true;
 
-    # add virtual cable for butt streaming
+    # add virtual audio device for butt streaming
     extraConfig.pipewire = {
-      "10-virtual-cable" =  {
+      "10-virtual-audio-device" =  {
         "context.objects" = [
           {
             "factory" = "adapter";
             "args" = {
               "factory.name" = "support.null-audio-sink";
-              "node.name" = "butt-virtual-cable";
+              "node.name" = "butt-virtual-audio-device";
               "media.class" = "Audio/Sink";
               "audio.position" = [ "FL" "FR" ];
               "adapter.auto-port-config" = {
