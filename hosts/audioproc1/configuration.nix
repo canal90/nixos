@@ -19,6 +19,12 @@
     '';
   };
 
+  #musnix = {
+  #  enable = true;
+  #  kernel.realtime = true;
+  #  rtirq.enable = true;
+  #};
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -86,7 +92,7 @@
     isNormalUser = true;
     description = userSettings.name;
     initialHashedPassword = "$y$j9T$9DM4/7clQGEAY5SsRjEuu0$56AZgy91xnZtKNAuZYEWAY160SEWHQ26uhka4lCO/LA"; # password is "changeme"
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" ];
     packages = with pkgs; [
       firefox
       kate

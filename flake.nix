@@ -10,6 +10,8 @@
 
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    #musnix.url = "github:musnix/musnix";
   };
 
   outputs = { self, nixpkgs, home-manager, disko }@inputs:
@@ -37,6 +39,8 @@
 
           disko.nixosModules.disko
           ./hosts/${systemSettings.hostname}/disk-configuration.nix
+
+          #inputs.musnix.nixosModules.musnix
 
           ./nixosModules
 
