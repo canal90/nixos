@@ -20,3 +20,10 @@ Open a terminal and execute the following and fill in the new password:
 ```
 passwd
 ```
+Next we need to rebuild NixOS.
+```
+cd ~
+git clone https://github.com/canal90/nixos
+cd nixos
+sudo nixos-rebuild switch --flake .#audioproc1
+```
