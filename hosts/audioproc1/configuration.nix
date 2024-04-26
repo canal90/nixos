@@ -48,7 +48,7 @@
   #services.xserver.desktopManager.plasma5.enable = true;
 
   # Enable Cinnamon Desktop
-  services.xeserver = {
+  services.xserver = {
     displayManager.lightdm.enable = true;
     desktopManager.cinnamon.enable = true;
     libinput.enable = true;
